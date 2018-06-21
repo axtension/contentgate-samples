@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AXtension.ContentGate.Client" Version="1.1806.0-preview" />
+  </ItemGroup>
+
 </Project>
