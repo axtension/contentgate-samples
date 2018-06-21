@@ -66,7 +66,7 @@ namespace UploadContentSample
                         20392,
                         // externally linked business entity reference (using external reference) which means:
                         // business entity connector reference, external type, external id combination
-                        ("DYN365", "Customers", "CustomerAccount'US-023',dataAreaId='usmf'")
+                        ("DYN365", "Customers", "CustomerAccount='US-023',dataAreaId='usmf'")
                     }
                 };
 
