@@ -19,7 +19,7 @@ namespace UploadContentSample
         static async Task StartUpload()
         {
             // the base uri that references the Content Gate tenant.
-            var baseUrl = default(Uri);
+            var baseUrl = new Uri("https://{tenant}.content-gate.com"); // fill in the tenant.
 
             // the client id of the app registered in the tenant.
             var clientId = ""; // fill in the client id here. (e.g. 1bd5690d-2902-4400-b7bb-d292691e6323)
