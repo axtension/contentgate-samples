@@ -37,7 +37,7 @@ namespace UploadContentSample
                 // construct the upload manifest for uploading content.
                 var addContentArgs = new AddContentArgs
                 {
-                    // add the binary content (or weblink content) that needs to be uploaded.
+                    // add the binary content (or weblink content) that needs to be uploaded. 
                     Assets =
                     {
                         new BinaryAsset("My Binary Title", "text/plain", @"c:\path\to\binary.txt"),
