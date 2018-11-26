@@ -41,7 +41,7 @@ namespace UploadContentSample
                     Assets =
                     {
                         new BinaryAsset("My Binary Title", "text/plain", @"c:\path\to\binary.txt"),
-                        new UriLinkAsset("AXtension home page") { Uri = "http://axtension.com" }
+                        new UriLinkAsset("AXtension home page", "http://axtension.com")
                     },
 
                     // set the content category that the content will be added to.
