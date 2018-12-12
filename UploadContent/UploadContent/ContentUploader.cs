@@ -1,31 +1,27 @@
 ﻿using AXtension.ContentGate.Client;
+using AXtension.ContentGate.Client.BusinessEntities;
 using AXtension.ContentGate.Client.Content;
 using AXtension.ContentGate.Client.ContentCategories;
 using AXtension.ContentGate.Client.StorageProviders;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace UploadContentSample
+namespace UploadContent
 {
-    class Program
+    class ContentUploader
     {
-        static void Main(string[] args)
-        {
-            StartUpload().Wait();
-
-            Console.WriteLine("Done uploading content.");
-        }
-
-        static async Task StartUpload()
+        public async Task StartUpload()
         {
             // the base uri that references the Content Gate tenant.
-            var baseUrl = new Uri("https://{tenant}.content-gate.com"); // fill in the tenant.
+            var baseUrl = new Uri("## TENANT ##"); // fill in the tenant. (e.g. https://axtension.content-gate.com)
 
             // the client id of the app registered in the tenant.
-            var clientId = ""; // fill in the client id here. (e.g. 1bd5690d-2902-4400-b7bb-d292691e6323)
+            var clientId = "## CLIENT ID##"; // fill in the client id here. (e.g. 1bd5690d-2902-4400-b7bb-d292691e6323)
 
             // the authority that ContentGate belongs to, and accepts signed tokens of.
-            var authority = ""; // fill in the authority here. (https://login.microsoftonline.com/axtension.com)
+            var authority = "## AUTHORITY ##"; // fill in the authority here. (e.g. https://login.microsoftonline.com/axtension.com)
 
             // for device authentication, simply use the default console output to instruct the user
             // how to authenticate.
@@ -40,33 +36,33 @@ namespace UploadContentSample
                     // add the binary content (or weblink content) that needs to be uploaded.
                     Assets =
                     {
-                        new BinaryAsset("My Binary Title", "text/plain", @"c:\path\to\binary.txt"),
-                        new UriLinkAsset("AXtension home page") { Uri = "http://axtension.com" }
+                        // use binary assets to upload files.
+                        new BinaryAsset("My Binary Title", "text/plain", @"d:\example1.txt"),
+
+                       // use uri link assets to upload web links.
+                       new UriLinkAsset("AXtension home page", "http://axtension.com")
                     },
 
                     // set the content category that the content will be added to.
                     ContentCategory = new ContentCategoryRef(2),
 
                     // set the storage provider that will store the content.
-                    StorageProvider = new StorageProviderRef("AZBLOB"),
+                    StorageProvider = new StorageProviderRef("AZBLOB3"),
 
                     // set property values that need to be set.
                     UserProperties =
                     {
-                        // user property id and value.
-                        (id: 1, value: "Remarks"),
-                        // or using the shorthand:
-                        (2, DateTime.Now)
+                        // set user property values by adding a user property id and its corresponding value.
+                        new UserPropertyValue{ Property = new UserPropertyRef(1), Value = "Remarks" },
+                        new UserPropertyValue{ Property = new UserPropertyRef(2), Value = DateTime.Now},
                     },
 
                     // add the connection to one or more business entities.
                     Connections =
                     {
-                        // directly linked business entity reference (using Content Gate id)
-                        20392,
                         // externally linked business entity reference (using external reference) which means:
                         // business entity connector reference, external type, external id combination
-                        ("DYN365", "Customers", "CustomerAccount='US-023',dataAreaId='usmf'")
+                        BusinessEntityRef.ExternalReference("DYN3652", "Customers", "CustomerAccount='US-027',dataAreaId='usmf'")
                     }
                 };
 
