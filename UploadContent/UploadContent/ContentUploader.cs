@@ -40,7 +40,10 @@ namespace UploadContent
                         new BinaryAsset("My Binary Title", "text/plain", @"d:\example1.txt"),
 
                        // use uri link assets to upload web links.
-                       new UriLinkAsset("AXtension home page", "http://axtension.com")
+                       new UriLinkAsset("AXtension home page", "http://axtension.com"),
+
+                       // use binary link assets to add files that already exist in the given storage provider.
+                       new BinaryLinkAsset("My Binary Title", "example1.txt")
                     },
 
                     // set the content category that the content will be added to.
