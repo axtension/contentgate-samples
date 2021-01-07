@@ -62,7 +62,7 @@ Allows you to access the client by using the identity of an application, this wi
 
 **Example**: 
 ```C#
-**Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## CLIENT SECRET ##'));
+new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## CLIENT SECRET ##'));
 ```
 
 ### Username/Password flow
@@ -70,7 +70,7 @@ Allows you to sign in the user by directly handling their password. **This flow 
 
 **Example**: 
 ```C#
-**Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## USERNAME ##', '## PASSWORD ##'));
+new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## USERNAME ##', '## PASSWORD ##'));
 ```
 
 ### Custom Content Gate Credentials
@@ -78,5 +78,5 @@ There is also a possibility to ceate a custom content gate credentials class, th
 
 **Example**: 
 ```C#
-**Example**: new ContentGateClient('## TENANT ##', new CustomContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##'));
+new ContentGateClient('## TENANT ##', new CustomContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##'));
 ```
