@@ -18,7 +18,7 @@ namespace Authentication
             this._authority = authority;
         }
 
-        public ContentGateClient GetClientWithDeviceCode()
+        public ContentGateClient CreateClientWithDeviceCode()
         {
             // for device authentication, simply use the default console output to instruct the user.
             // how to authenticate.
@@ -28,16 +28,16 @@ namespace Authentication
             return new ContentGateClient(_baseUrl, new ContentGateCredentials(_clientId, _authority, deviceCodeAuthenticator));
         }
 
-        public ContentGateClient GetClientWithClientIdAndSecret(string clientSecret)
+        public ContentGateClient CreateClientWithClientIdAndSecret(string clientSecret)
             => new ContentGateClient(_baseUrl, new ContentGateCredentials(_clientId, _authority, clientSecret));
         
-        public ContentGateClient GetClientWithUsernameAndPassword(string username, string password)
+        public ContentGateClient CreateClientWithUsernameAndPassword(string username, string password)
             => new ContentGateClient(_baseUrl, new ContentGateCredentials(_clientId, _authority, username, password));
 
-        public ContentGateClient GetClientWithUserPrompt()
+        public ContentGateClient CreateClientWithUserPrompt()
             => new ContentGateClient(_baseUrl, new ContentGateCredentials(_clientId, _authority));
 
-        public ContentGateClient GetClientWithCustomAuthorizationHeader()
+        public ContentGateClient CreateClientWithCustomAuthorizationHeader()
             => new ContentGateClient(_baseUrl, new CustomContentGateCredentials(_clientId, _authority));
     }
 }
