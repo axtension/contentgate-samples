@@ -38,32 +38,45 @@ Fill the values commented out in code (e.g. client id, authority etc)
 
 ## How to authenticate
 There are five methods availible to authenticate to the Content Gate Client. See the description of these methods below.
-
-For sample code see the authentication solution [Authentication samples](https://github.com/axtension/contentgate-samples/tree/AddAuthenticationSample/Authentication)
-
 To create a ContentGateClient object you will need a ContentGateCredentials object. It has multiple constructors for the following flows.
+
+For sample code see the authentication solution: [Authentication samples](https://github.com/axtension/contentgate-samples/tree/AddAuthenticationSample/Authentication).
 
 ### User Prompt flow
 The user will be prompted a login screen.
 
-**Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##'));
-
+**Example**: 
+```C#
+new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##'));
+```
 ### Device Code flow
 Allows users to sign in to input-constrained devices. 
 
-**Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', DeviceAuthentication.Console));
+**Example**: 
+```C#
+new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', DeviceAuthentication.Console));
+```
 
 ### Service Account flow
 Allows you to access the client by using the identity of an application, this without immediate interaction with a user.
 
+**Example**: 
+```C#
 **Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## CLIENT SECRET ##'));
+```
 
 ### Username/Password flow
 Allows you to sign in the user by directly handling their password. **This flow isn't recommended.**
 
+**Example**: 
+```C#
 **Example**: new ContentGateClient('## TENANT ##', new ContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##', '## USERNAME ##', '## PASSWORD ##'));
+```
 
 ### Custom Content Gate Credentials
 There is also a possibility to ceate a custom content gate credentials class, this can be achieved by creating a new class (e.g. CustomContentGateCredentials) and implementing the IContentGateCredentials interface with the corresponding methods.
 
+**Example**: 
+```C#
 **Example**: new ContentGateClient('## TENANT ##', new CustomContentGateCredentials('## CLIENT ID ##', '## AUTHORITY ##'));
+```
