@@ -21,7 +21,7 @@ For more information on how to obtain an Azure AD tenant, see How to get an Azur
 5. Select **New application registration** and provide a friendly name for the app, app type, and sign-on URL: 
       - **Name:** ContentGateUploadApp
       - **Supported account types:** Single tenant
-      - **Redirect URI:** Public client/native (mobile & desktop) with **Sign-on URL:** `local://content-gate.local/signin-oidc`
+      - **Redirect URI:** Public client/native (mobile & desktop) with **URL:** `local://content-gate.local/api`
     
     Select **Register** to register the app.
 
