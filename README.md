@@ -37,7 +37,7 @@ For more information on how to obtain an Azure AD tenant, see How to get an Azur
 Fill the values commented out in code (e.g. client id, authority etc)
 
 ## How to authenticate
-There are five methods availible to authenticate to the Content Gate Client. See the description of these methods below.
+There are five methods available to authenticate to the Content Gate Client. See the description of these methods below.
 To create a ContentGateClient object you will need a ContentGateCredentials object. It has multiple constructors for the following flows.
 
 For sample code see the authentication solution: [Authentication samples](https://github.com/axtension/contentgate-samples/tree/AddAuthenticationSample/Authentication).
