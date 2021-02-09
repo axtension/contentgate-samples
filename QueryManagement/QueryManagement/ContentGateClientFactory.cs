@@ -1,14 +1,8 @@
 ﻿using AXtension.ContentGate.Client;
-using AXtension.ContentGate.Client.BusinessEntities;
-using AXtension.ContentGate.Client.Content;
-using AXtension.ContentGate.Client.ContentCategories;
+using AXtension.ContentGate.Client.Query;
 using AXtension.ContentGate.Client.GalleryViews;
-using AXtension.ContentGate.Client.StorageProviders;
+using AXtension.ContentGate.Client.MSAL;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UploadContentService
 {
