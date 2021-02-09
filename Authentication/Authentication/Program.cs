@@ -21,7 +21,7 @@ namespace Authentication
                 var clientFactory = new ContentGateClientFactory(baseUrl, clientId, authority);
 
                 // Create the client.
-                var contentGateClient = clientFactory.GetClientWithUserPrompt();
+                var contentGateClient = clientFactory.CreateClientWithUserPrompt();
             }
             catch (AggregateException ag)
             {

@@ -1,4 +1,5 @@
 ﻿using AXtension.ContentGate.Client;
+using AXtension.ContentGate.Client.MSAL;
 using System;
 using System.Collections.Generic;
 using System.Text;

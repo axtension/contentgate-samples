@@ -19,7 +19,7 @@ namespace Authentication
             this._authority = authority;
         }
 
-        public Task<string> GetAuthorizationHeader(string resource)
+        public Task<string> GetAuthorizationHeaderAsync(string resource)
         {
             // Implement your own autorization header response.
             throw new NotImplementedException();
