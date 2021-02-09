@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AXtension.ContentGate.Client" Version="1.1903.0-preview" />
+    <PackageReference Include="AXtension.ContentGate.Client" Version="1.2102.3" />
   </ItemGroup>
 
 </Project>

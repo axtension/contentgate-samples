@@ -2,6 +2,7 @@
 using AXtension.ContentGate.Client.BusinessEntities;
 using AXtension.ContentGate.Client.Content;
 using AXtension.ContentGate.Client.ContentCategories;
+using AXtension.ContentGate.Client.MSAL;
 using AXtension.ContentGate.Client.StorageProviders;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace UploadContentService
             var deviceCodeAuthenticator = DeviceAuthentication.Console;
 
             // construct the client.
-            this._contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator);
+            this._contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator));
 
             this._watchHandler = new EventHandler<string>((_, file) => UploadItem(file).Wait());
 

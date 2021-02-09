@@ -3,6 +3,7 @@ using AXtension.ContentGate.Client.BusinessEntities;
 using AXtension.ContentGate.Client.Content;
 using AXtension.ContentGate.Client.ContentCategories;
 using AXtension.ContentGate.Client.Infrastructure;
+using AXtension.ContentGate.Client.MSAL;
 using AXtension.ContentGate.Client.StorageProviders;
 using AXtension.ContentGate.Client.Users;
 using System;
@@ -30,7 +31,7 @@ namespace UserManagement
         public async Task GetAllUsers()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 await contentGateClient.Users.GetUsersAsync().ConfigureAwait(false);
             }
@@ -39,7 +40,7 @@ namespace UserManagement
         public async Task CreateUser()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // Define the user to be created.
                 var user = new User
@@ -59,17 +60,15 @@ namespace UserManagement
         public async Task UpdateUser()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // Define the user to be updated.
-                var user = new User
+                var user = new UpdateUser
                 {
                     Id = long.Parse("## USER ID ##"),
                     FirstName = "## FIRST NAME ##",
                     LastName = "## LAST NAME ##",
                     DisplayName = "## DISPLAY NAME ##",
-                    UserName = "## USERNAME ##", // e.g. user@example.com
-                    UserId = "## AZURE AD USER ID ##" // the id of the user in Azure AD, e.g. 50780F85-1C7A-4959-A4AD-DFF6B161E1A7
                 };
 
                 // send the request to Content Gate.
@@ -80,7 +79,7 @@ namespace UserManagement
         public async Task DeleteUser()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // The id of the user to be deleted.
                 var id = long.Parse("## USER ID ##");
@@ -93,7 +92,7 @@ namespace UserManagement
         public async Task AddRoleToUser()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // The id of the user to add the specified role to.
                 var id = long.Parse("## USER ID ##");
@@ -109,7 +108,7 @@ namespace UserManagement
         public async Task RemoveRoleFromUser()
         {
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // The id of the user to remove the specified role from.
                 var id = long.Parse("## USER ID ##");
