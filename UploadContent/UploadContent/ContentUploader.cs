@@ -2,6 +2,7 @@
 using AXtension.ContentGate.Client.BusinessEntities;
 using AXtension.ContentGate.Client.Content;
 using AXtension.ContentGate.Client.ContentCategories;
+using AXtension.ContentGate.Client.MSAL;
 using AXtension.ContentGate.Client.StorageProviders;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace UploadContent
             var deviceCodeAuthenticator = DeviceAuthentication.Console;
 
             // construct the client.
-            using (var contentGateClient = new ContentGateClient(baseUrl, clientId, authority, deviceCodeAuthenticator))
+            using (var contentGateClient = new ContentGateClient(baseUrl, new ContentGateCredentials(clientId, authority, deviceCodeAuthenticator)))
             {
                 // construct the upload manifest for uploading content.
                 var addContentArgs = new AddContentArgs
