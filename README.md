@@ -1,5 +1,5 @@
-﻿# AXtension® Content Gate Samples
-This repository contains sample applications for external use of the AXtension® Content Gate client SDK using the REST endpoints provided by AXtension® Content Gate.
+﻿# Axtension® Content Gate Samples
+This repository contains sample applications for external use of the Axtension® Content Gate client SDK using the REST endpoints provided by Axtension® Content Gate.
 
 ## How to run this sample
 To run this sample:
@@ -34,7 +34,9 @@ For more information on how to obtain an Azure AD tenant, see How to get an Azur
    - **The Application ID (Client ID):** See the Properties blade. For example: `ba74781c2-53c2-442a-97c2-3d60re42f403`
 
 ### Step 2: Run the sample
-Fill the values commented out in code (e.g. client id, authority etc)
+Fill the values commented out in code (e.g. client id, authority etc). 
+
+> ⚠️  SDK references in the samples may be outdated. It is recommended to check if newer versions are available.
 
 ## How to authenticate
 There are five methods available to authenticate to the Content Gate Client. See the description of these methods below.
